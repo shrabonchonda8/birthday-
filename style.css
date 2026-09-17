@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, "Noto Sans Bengali", sans-serif;
   background: #f4f7fb;
@@ -11,25 +15,27 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
+/* ================= HEADER ================= */
 
 .topbar {
-  background: linear-gradient(135deg, #111827, #1d4ed8);
+  background: linear-gradient(135deg, #111827, #2563eb);
   color: white;
-  padding: 22px 5%;
+  padding: 20px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 5px 20px rgba(0,0,0,.15);
+  gap: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .15);
 }
 
 .topbar h1 {
-  font-size: 25px;
+  font-size: 26px;
+  line-height: 1.2;
   margin-bottom: 5px;
 }
 
 .topbar p {
-  opacity: .8;
+  color: rgba(255,255,255,.78);
   font-size: 14px;
 }
 
@@ -39,7 +45,7 @@ body {
   margin: 25px auto;
 }
 
-/* Summary */
+/* ================= SUMMARY ================= */
 
 .summary {
   display: grid;
@@ -52,7 +58,7 @@ body {
   background: white;
   padding: 18px;
   border-radius: 16px;
-  box-shadow: 0 5px 18px rgba(30, 41, 59, .08);
+  box-shadow: 0 5px 18px rgba(30,41,59,.08);
   border: 1px solid #e7ebf2;
 }
 
@@ -64,7 +70,8 @@ body {
 }
 
 .card strong {
-  font-size: 25px;
+  display: block;
+  font-size: 24px;
   color: #2563eb;
 }
 
@@ -76,14 +83,14 @@ body {
   color: #059669;
 }
 
-/* Panel */
+/* ================= PANEL ================= */
 
 .panel {
   background: white;
   padding: 22px;
   border-radius: 18px;
   margin-bottom: 20px;
-  box-shadow: 0 5px 20px rgba(30, 41, 59, .07);
+  box-shadow: 0 5px 20px rgba(30,41,59,.07);
   border: 1px solid #e7ebf2;
 }
 
@@ -91,6 +98,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -104,9 +112,10 @@ body {
   padding: 6px 10px;
   border-radius: 20px;
   font-size: 12px;
+  white-space: nowrap;
 }
 
-/* Form */
+/* ================= FORM ================= */
 
 .form-grid {
   display: grid;
@@ -135,6 +144,7 @@ textarea {
   width: 100%;
   border: 1px solid #dbe2ea;
   background: #f8fafc;
+  color: #172033;
   border-radius: 10px;
   padding: 12px;
   font-size: 14px;
@@ -152,14 +162,19 @@ textarea:focus {
 
 textarea {
   resize: vertical;
+  min-height: 90px;
 }
 
-/* Buttons */
+/* ================= BUTTONS ================= */
 
 .form-buttons {
   display: flex;
   gap: 10px;
   margin-top: 18px;
+}
+
+button {
+  font-family: inherit;
 }
 
 .save-btn,
@@ -175,14 +190,13 @@ textarea {
 }
 
 .save-btn {
-  background: #2563eb;
+  background: linear-gradient(135deg,#2563eb,#1d4ed8);
   color: white;
   padding: 13px 20px;
 }
 
-.save-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
+.save-btn:active {
+  transform: scale(.97);
 }
 
 .cancel-btn {
@@ -198,11 +212,15 @@ textarea {
   font-size: 12px;
 }
 
-.hidden {
-  display: none;
+.danger-small:active {
+  transform: scale(.96);
 }
 
-/* Search */
+.hidden {
+  display: none !important;
+}
+
+/* ================= SEARCH ================= */
 
 .search-area {
   margin-bottom: 18px;
@@ -215,7 +233,7 @@ textarea {
   box-shadow: 0 4px 15px rgba(0,0,0,.05);
 }
 
-/* Reports */
+/* ================= REPORTS ================= */
 
 .reports-container {
   display: flex;
@@ -234,6 +252,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   margin-bottom: 13px;
 }
 
@@ -247,6 +266,13 @@ textarea {
   color: #64748b;
   font-weight: normal;
   margin-top: 4px;
+}
+
+.report-top > div:last-child {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 7px 11px;
+  border-radius: 9px;
 }
 
 .report-values {
@@ -317,7 +343,7 @@ textarea {
   padding: 8px 12px;
 }
 
-/* Empty */
+/* ================= EMPTY ================= */
 
 .empty {
   text-align: center;
@@ -335,7 +361,7 @@ textarea {
   margin-bottom: 6px;
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 
 footer {
   text-align: center;
@@ -344,47 +370,42 @@ footer {
   font-size: 12px;
 }
 
-/* Mobile */
+/* ================= TABLET ================= */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
   .summary {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .card:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .input-box.full {
     grid-column: auto;
-  }
-
-  .report-values {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+/* ================= MOBILE ================= */
+
+@media (max-width: 650px) {
 
   .topbar {
-    padding: 18px 4%;
+    padding: 17px 4%;
   }
 
   .topbar h1 {
-    font-size: 20px;
+    font-size: 21px;
+  }
+
+  .topbar p {
+    font-size: 12px;
   }
 
   .container {
     width: 94%;
-    margin-top: 18px;
+    margin: 18px auto;
   }
 
   .summary {
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
@@ -393,18 +414,75 @@ footer {
   }
 
   .card strong {
-    font-size: 21px;
+    font-size: 20px;
+  }
+
+  .card:last-child {
+    grid-column: 1 / -1;
   }
 
   .panel {
     padding: 16px;
+    border-radius: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .input-box.full {
+    grid-column: auto;
   }
 
   .report-values {
+    grid-template-columns: repeat(2, 1fr);
     gap: 7px;
   }
 
   .value-box {
     padding: 9px;
+  }
+
+  .panel-title h2 {
+    font-size: 17px;
+  }
+
+  .panel-title span {
+    font-size: 10px;
+  }
+}
+
+/* ================= SMALL PHONE ================= */
+
+@media (max-width: 380px) {
+
+  .summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card span {
+    font-size: 11px;
+  }
+
+  .card strong {
+    font-size: 18px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+
+  .report-top {
+    align-items: flex-start;
+  }
+
+  .report-top > div:last-child {
+    font-size: 12px;
   }
 }
